@@ -18,12 +18,24 @@ class TaskManager
   end
 
   def raw_tasks #goes into YAML file and retrieves everything under database['tasks']
-    database.transaction do
+    database.transaction do #database is the YAML file
       database['tasks'] || []
     end
   end
 
   def all
-    raw_tasks.map {|data| Task.new(data)}
+    raw_tasks.map do |data|
+      Task.new(data)
+    end
+  end
+
+  def raw_task(id)
+    raw_tasks.find do |task|
+      task["id"] == id
+    end
+  end
+
+  def find(id)
+    Task.new(raw_task(id))
   end
 end

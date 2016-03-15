@@ -4,6 +4,15 @@ tasks:
   title: Dancing
   description: I like to wear my dancing shoes.
 - id: 2
-  title: Dancing
-  description: I like to wear my dancing shoes.
-total: 2
+  title: Singing
+  description: I cannot sing.
+- id: 3
+  title: Cooking
+  description: mmm food
+- id: 4
+  title: Shopping
+  description: I have to buy presents.
+- id: 5
+  title: Running
+  description: I need to get dem abs.
+total: 5

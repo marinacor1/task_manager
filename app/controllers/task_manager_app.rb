@@ -1,3 +1,5 @@
+require 'models/task_manager'
+
 class TaskManagerApp < Sinatra::Base
   set :root, File.expand_path("..", __dir__) #sets root of project
 
@@ -6,7 +8,7 @@ class TaskManagerApp < Sinatra::Base
   end
 
   get '/tasks' do #adding a route
-    @tasks = ["task1", "task2", "task3"]
+    @tasks = task_manager.all
     erb :index
   end
 
@@ -16,7 +18,12 @@ class TaskManagerApp < Sinatra::Base
 
   post '/tasks' do #using post bc its data to be processed (Get is for data from a specific source)
     task_manager.create(params[:task])
-    redirect '/tasks' #once task is created 
+    redirect '/tasks' #once task is created
+  end
+
+  post '/tasks/:id' do |id| #will change address to match task
+    @task = task_manager.find(id.to_i)
+    erb :show
   end
 
   def task_manager

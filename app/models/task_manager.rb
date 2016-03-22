@@ -8,8 +8,8 @@ class TaskManager
     @database = database #gives instance of YAML::Store in db/task_manager file
   end
 
-  def create(task)
-    database.transaction do
+  def create(task) #transaction method is from YAML file 
+    database.transaction do #creating a task if it does not exist than create what's on teh right else do whats on the left
       database['tasks'] ||= []
       database['total'] ||= 0
       database['total'] += 1
@@ -23,13 +23,13 @@ class TaskManager
     end
   end
 
-  def all
+  def all  #read
     raw_tasks.map do |data|
       Task.new(data)
     end
   end
 
-  def raw_task(id)
+  def raw_task(id) #read
     raw_tasks.find do |task|
       task["id"] == id
     end

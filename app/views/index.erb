@@ -1,8 +1,8 @@
 <h1>All Tasks</h1>
 
 <% @tasks.each do |task| %>
-        <i class='glyphicon glyphicon-heart'></i>
+  <i class='glyphicon glyphicon-heart'></i>
   <h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%= task.title %></a></h3>
+  <a href="/tasks/<%= task.id %>/edit">Editar</a>
 <% end %>
-
-<!-- gives title to bullet points within tasks  -->
+ <!-- adds link to edit -->

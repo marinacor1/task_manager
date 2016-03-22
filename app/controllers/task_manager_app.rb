@@ -17,11 +17,6 @@ class TaskManagerApp < Sinatra::Base
     erb :new
   end
 
-  put '/tasks/:id' do |id| #READ
-    task_manager.update(id.to_i, params[:task])
-    redirect "/tasks/#{id}"
-  end
-
   post '/tasks' do #using post bc its data to be processed (Get is for data from a specific source) #Create
     task_manager.create(params[:task])
     redirect '/tasks' #once task is created
@@ -37,8 +32,13 @@ class TaskManagerApp < Sinatra::Base
     erb :edit
   end
 
+  put '/tasks/:id' do |id| #update
+    task_manager.update(id.to_i, params[:task])
+    redirect "/tasks/#{id}"
+  end
+
   def task_manager
-    database = YAML::Store.new('db/task_manager') #YAML is the database. File is white space sensitive. 
+    database = YAML::Store.new('db/task_manager') #YAML is the database. File is white space sensitive.
     @task_manager ||= TaskManager.new(database) #tasks are created here
   end
 end

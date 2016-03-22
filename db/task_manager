@@ -11,7 +11,7 @@ tasks:
   description: mmm food
 - id: 4
   title: Shopping
-  description: I have to buy presents.
+  description: I have to buy gifts.
 - id: 5
   title: Running
   description: I need to get dem abs.

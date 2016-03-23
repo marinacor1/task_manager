@@ -42,6 +42,7 @@ class TaskManagerTest < Minitest::Test
 
     correct_task = task_manager.find(3)
     assert_equal 'yoga', correct_task.title
-
+    assert_equal 'yoga sculpt at 6pm', correct_task.description
+    refute_equal 'eat', correct_task.title
   end
 end

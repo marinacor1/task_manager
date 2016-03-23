@@ -21,4 +21,13 @@ tasks:
 - id: 21
   title: Learn Capybara
   description: Its super helpful
-total: 21
+- id: 22
+  title: Learn Capybara
+  description: Its super helpful
+- id: 23
+  title: Learn Capybara
+  description: Its super helpful
+- id: 24
+  title: swim in a pool
+  description: 'because it''s refreshing '
+total: 24

@@ -20,4 +20,10 @@ module TestHelpers
     database = YAML::Store.new('db/task_manager_test')
     @task_manager ||= TaskManager.new(database)
   end
+
+  def create_tasks(num = 2)
+    num.times do |i|
+      task_manager.create({:title => "task title #{i + 1}", :description => "task description #{i + 2}" })
+    end
+  end
 end

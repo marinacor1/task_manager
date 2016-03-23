@@ -7,9 +7,9 @@ class UserDeletesTask < Minitest::Test
   def test_user_can_delete_a_task
     visit '/'
     create_tasks(1)
-  
+
     visit '/tasks'
-      within(".buttons") do
+      within(".buttons") do #index.erb
         assert page.has_content?("task title 1")
       end
 

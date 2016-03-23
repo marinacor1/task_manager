@@ -52,4 +52,11 @@ class TaskManager
     Task.new(raw_task(id))
   end
 
+  def delete_all #access database so use database.transaction
+    database.transaction do
+      database['tasks'] = []
+      database['total'] = 0
+    end
+  end
+
 end

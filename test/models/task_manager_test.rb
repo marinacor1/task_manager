@@ -12,5 +12,6 @@ class TaskManagerTest < Minitest::Test
     assert_equal "a title", task.title
     assert_equal "a description", task.description
     assert_equal 1, task.id
+    refute task.id == 2
   end
 end

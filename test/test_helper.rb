@@ -1,6 +1,10 @@
 require File.expand_path('../../config/environment', __FILE__)
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'capybara/dsl'
+require 'tilt/erb'
+
+Capybara.app = TaskManagerApp #sets the app that will be tested with capybara
 
 ENV['RACK_ENV'] ||= 'test'
 #if run shotgun defaults in developer mode, else when runs in test sets it equal to test environment
@@ -13,7 +17,7 @@ require 'tilt/erb'
 module TestHelpers
   def teardown
     task_manager.delete_all
-    super #minitest after every test will tear down
+    super #minitest after every test will tear down doesn't overwrite functionality
   end
 
   def task_manager #will overwrite what was database before. Manage data.

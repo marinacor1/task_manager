@@ -57,6 +57,7 @@ class TaskManagerTest < Minitest::Test
     new_all = task_manager.all
     assert_equal 'swim', new_all.first.title
     refute_equal 'eat', new_all.first.title
+    #add an any? assertion 
   end
 
   def test_update_works

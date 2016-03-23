@@ -1,8 +1,5 @@
 ---
 tasks:
-- id: 14
-  title: flossing
-  description: got ta floss
 - id: 15
   title: getting a shoe shine
   description: need dem shiny shoes
@@ -12,4 +9,25 @@ tasks:
 - id: 18
   title: hula hooping
   description: its so much fun
-total: 18
+- id: 19
+  title: dsflsj
+  description: ssfd
+- id: 20
+  title: Learn Capybara
+  description: Its super helpful
+- id: 21
+  title: Learn Capybara
+  description: Its super helpful
+- id: 22
+  title: Learn Capybara
+  description: Its super helpful
+- id: 23
+  title: Learn Capybara
+  description: Its super helpful
+- id: 24
+  title: swim in a pool
+  description: 'because it''s refreshing '
+- id: 25
+  title: Wash dishes
+  description: Very important chore to do
+total: 25

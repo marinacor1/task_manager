@@ -40,7 +40,11 @@ class TaskManagerApp < Sinatra::Base
   end
 
   def task_manager
-    database = YAML::Store.new('db/task_manager') #YAML is the database. File is white space sensitive.
+    if ENV["RACK_ENV"]  == "test"
+      database = YAML::Store.new('db/task_manager_test') #YAML is the database. File is white space sensitive.
+    else
+      database = YAML::Store.new('db/task_manager')
+    end
     @task_manager ||= TaskManager.new(database) #tasks are created here
   end
 end

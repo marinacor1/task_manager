@@ -1,6 +1,7 @@
 require_relative '../test_helper'
 
 class TaskManagerTest < Minitest::Test
+  include TestHelpers
   def test_it_creates_a_task
     task_manager.create({
       :title       => "a title",

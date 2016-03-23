@@ -1,8 +1,4 @@
-require 'models/task_manager'
-
 class TaskManagerApp < Sinatra::Base
-  set :root, File.expand_path("..", __dir__) #sets root of project
-  set :method_override, true  # this allows us to use _method in the form
 
   get '/' do #this is the controller's single route
     erb :dashboard #will look for an erb file called dashboard
@@ -35,6 +31,12 @@ class TaskManagerApp < Sinatra::Base
   put '/tasks/:id' do |id| #update
     task_manager.update(id.to_i, params[:task])
     redirect "/tasks/#{id}"
+  end
+
+  delete '/tasks/:id' do |id|
+    puts "this is the id: #{id}!!!!"
+    task_manager.delete(id.to_i)
+    redirect "/tasks"
   end
 
   def task_manager

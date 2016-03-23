@@ -4,5 +4,10 @@
   <i class='glyphicon glyphicon-heart'></i>
   <h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%= task.title %></a></h3>
   <a href="/tasks/<%= task.id %>/edit">Editar</a>
+
+  <form action="/tasks/<%= task.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Eliminar">
+  </form>
 <% end %>
- <!-- adds link to edit -->
+ <!-- adds link to edit . underscore method means to override -->

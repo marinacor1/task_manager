@@ -1,24 +1,15 @@
 ---
 tasks:
-- id: 1
-  title: Dancing
-  description: I like to wear my dancing shoes.
-- id: 2
-  title: Singing
-  description: I cannot sing.
-- id: 3
-  title: Cooking
-  description: mmm food
-- id: 4
-  title: Shopping
-  description: I have to buy gifts.
-- id: 5
-  title: Running
-  description: I need to get dem abs.
-- id: 6
-  title: ''
-  description: ''
-- id: 7
-  title: Making Thom laugh
-  description: hahahaaaaa
-total: 7
+- id: 14
+  title: flossing
+  description: got ta floss
+- id: 15
+  title: getting a shoe shine
+  description: need dem shiny shoes
+- id: 16
+  title: shopping
+  description: just got paid
+- id: 18
+  title: hula hooping
+  description: its so much fun
+total: 18

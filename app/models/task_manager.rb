@@ -1,5 +1,4 @@
 require 'yaml/store' #allows us to store data in specific file
-require_relative 'task'
 
 class TaskManager
   attr_reader :database
@@ -25,19 +24,25 @@ class TaskManager
     end
   end
 
+  def delete(id)
+    database.transaction do
+      database['tasks'].delete_if { |task| task["id"] == id} #deleting if have the same id
+    end
+  end
+
   def raw_tasks #goes into YAML file and retrieves everything under database['tasks']
     database.transaction do #database is the YAML file
       database['tasks'] || []
     end
   end
 
-  def all  #read
+  def all
     raw_tasks.map do |data|
       Task.new(data)
     end
   end
 
-  def raw_task(id) #read
+  def raw_task(id)
     raw_tasks.find do |task|
       task["id"] == id
     end
@@ -46,4 +51,5 @@ class TaskManager
   def find(id)
     Task.new(raw_task(id))
   end
+
 end

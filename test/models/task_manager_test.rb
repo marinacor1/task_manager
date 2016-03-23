@@ -27,9 +27,21 @@ class TaskManagerTest < Minitest::Test
     task_manager.create({:title => 'grocery shopping', :description => 'need milk'})
 
     all = task_manager.all
+
     assert_equal Task, all.first.class
     assert_equal 'eat', all.first.title
     assert_equal 'need milk', all.last.description
     # assert_equal 4, all.count
+  end
+
+  def test_find_will_create_new_task_if_id_provided
+    task_manager.create({:title => 'eat', :description => 'i love food'})
+    task_manager.create({:title => 'swim', :description => '30 minute laps'})
+    task_manager.create({:title => 'yoga', :description => 'yoga sculpt at 6pm'})
+    task_manager.create({:title => 'grocery shopping', :description => 'need milk'})
+
+    correct_task = task_manager.find(3)
+    assert_equal 'yoga', correct_task.title
+
   end
 end

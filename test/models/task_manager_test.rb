@@ -14,4 +14,17 @@ class TaskManagerTest < Minitest::Test
     assert_equal 1, task.id
     refute task.id == 2
   end
+
+  def test_it_returns__empty_array_for_initial_all
+    all = task_manager.all
+    assert_equal [], all
+  end
+
+  def test_it_returns__all_info_for_initial
+    task_manager.create({:title => 'eat', :description => 'i love food'})
+    all = task_manager.all
+    assert_equal Task, all.first.class
+    assert_equal 'eat', all.first.title
+
+  end
 end

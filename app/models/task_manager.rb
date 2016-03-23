@@ -16,7 +16,7 @@ class TaskManager
     end
   end
 
-  def update(id, task)
+  def update(id, task) #**
     database.transaction do
       target = database['tasks'].find { |data| data["id"] == id}
       target["title"] = task[:title] #you need string to access YAML, symbol is allowed for params though
@@ -24,7 +24,7 @@ class TaskManager
     end
   end
 
-  def delete(id)
+  def delete(id) #**
     database.transaction do
       database['tasks'].delete_if { |task| task["id"] == id} #deleting if have the same id
     end
@@ -36,7 +36,7 @@ class TaskManager
     end
   end
 
-  def all
+  def all #**
     raw_tasks.map do |data|
       Task.new(data)
     end
@@ -48,7 +48,7 @@ class TaskManager
     end
   end
 
-  def find(id)
+  def find(id) #**
     Task.new(raw_task(id))
   end
 

@@ -1,8 +1,5 @@
 ---
 tasks:
-- id: 14
-  title: flossing
-  description: got ta floss
 - id: 15
   title: getting a shoe shine
   description: need dem shiny shoes
@@ -30,4 +27,7 @@ tasks:
 - id: 24
   title: swim in a pool
   description: 'because it''s refreshing '
-total: 24
+- id: 25
+  title: Wash dishes
+  description: Very important chore to do
+total: 25

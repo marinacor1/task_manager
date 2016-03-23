@@ -14,19 +14,11 @@ class UserDeletesTask < Minitest::Test
       fill_in 'task[description]', with: "Its super helpful" #new.erb
       click_button("Submit")
 
-    visit '/tasks'
+      click_button("Eliminar")
+      assert_equal "/tasks", current_path
 
-      click_link("Editar")
-      assert_equal "/tasks/1/edit", current_path
-
-      fill_in 'task[title]', with: "Sing and Dance" #edit.erb
-      fill_in 'task[description]', with: "Its super fun" #edit.erb
-      click_button("Submit")
-
-    assert_equal "/tasks/1", current_path #edit.erb ??
-
-    within(".edits") do
-      assert page.has_content?("Sing and Dance") #index.erb
+    within(".buttons") do
+      refute page.has_content?("Learn Capybara") #index.erb
     end
   end
 end

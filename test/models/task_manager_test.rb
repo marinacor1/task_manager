@@ -47,6 +47,7 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_find_will_delete_based_on_id
+    #assert with initial setup
     task_manager.create({:title => 'eat', :description => 'i love food'})
     task_manager.create({:title => 'swim', :description => '30 minute laps'})
     task_manager.create({:title => 'yoga', :description => 'yoga sculpt at 6pm'})
@@ -56,6 +57,13 @@ class TaskManagerTest < Minitest::Test
     new_all = task_manager.all
     assert_equal 'swim', new_all.first.title
     refute_equal 'eat', new_all.first.title
+  end
+
+  def test_update_works
+    task_manager.create({:title => 'eat', :description => 'i love food'})
+    task = ({:title => 'cooking', :description => 'making healthy meals'})
+    task_manager.update(1, task)
+    assert_equal 'cooking', task_manager.all.first.title
   end
 
 end

@@ -20,11 +20,16 @@ class TaskManagerTest < Minitest::Test
     assert_equal [], all
   end
 
-  def test_it_returns__all_info_for_initial
+  def test_it_returns__all_info_for_all
     task_manager.create({:title => 'eat', :description => 'i love food'})
+    task_manager.create({:title => 'swim', :description => '30 minute laps'})
+    task_manager.create({:title => 'yoga', :description => 'yoga sculpt at 6pm'})
+    task_manager.create({:title => 'grocery shopping', :description => 'need milk'})
+
     all = task_manager.all
     assert_equal Task, all.first.class
     assert_equal 'eat', all.first.title
-
+    assert_equal 'need milk', all.last.description
+    # assert_equal 4, all.count
   end
 end

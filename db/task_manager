@@ -12,13 +12,7 @@ tasks:
 - id: 19
   title: dsflsj
   description: ssfd
-- id: 20
-  title: Learn Capybara
-  description: Its super helpful
 - id: 21
-  title: Learn Capybara
-  description: Its super helpful
-- id: 22
   title: Learn Capybara
   description: Its super helpful
 - id: 23
@@ -30,4 +24,7 @@ tasks:
 - id: 25
   title: Wash dishes
   description: Very important chore to do
-total: 25
+- id: 26
+  title: buy socks
+  description: i love clothes
+total: 26

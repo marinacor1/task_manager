@@ -8,7 +8,7 @@ class TaskManager
   end
 
   def create(task) #transaction method is from YAML file
-    database.transaction do #creating a task if it does not exist than create what's on teh right else do whats on the left
+  database.transaction do #creating a task if it does not exist than create what's on teh right else do whats on the left
       database['tasks'] ||= []
       database['total'] ||= 0
       database['total'] += 1
